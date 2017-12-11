@@ -1,4 +1,5 @@
 FROM alpine:latest
+LABEL maintainer "jan.szumiec@gmail.com"
 RUN apk update
 RUN apk add git make libtool gcc g++ autoconf automake curl asciidoc
 RUN mkdir /app
@@ -14,3 +15,6 @@ RUN curl http://www.colm.net/files/ragel/ragel-7.0.0.10.tar.gz | tar -zxf -
 WORKDIR /app/ragel-7.0.0.10
 RUN ./configure
 RUN make && make install
+RUN mkdir /work
+WORKDIR /work
+
